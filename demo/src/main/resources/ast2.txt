@@ -1,0 +1,18 @@
+sourceUnit
+pragmaDirective contractDefinition <EOF> 
+pragma pragmaName pragmaValue ; library identifier { contractPart contractPart contractPart } 
+identifier version Math functionDefinition functionDefinition functionDefinition 
+solidity versionConstraint functionDescriptor parameterList modifierList returnParameters block functionDescriptor parameterList modifierList returnParameters block functionDescriptor parameterList modifierList returnParameters block 
+versionOperator 0.6.0 function identifier ( parameter , parameter ) internal stateMutability returns parameterList { statement statement = statement } function identifier ( parameter , parameter ) internal stateMutability returns parameterList { statement statement statement } function identifier ( parameter , parameter ) internal stateMutability returns parameterList { statement } 
+^ max typeName identifier typeName identifier pure ( parameter ) returnStatement simpleStatement simpleStatement min typeName identifier typeName identifier pure ( parameter ) returnStatement simpleStatement simpleStatement average typeName identifier typeName identifier pure ( parameter ) returnStatement 
+elementaryTypeName a elementaryTypeName b typeName return expression ; expressionStatement expressionStatement elementaryTypeName a elementaryTypeName b typeName return expression ; expressionStatement expressionStatement elementaryTypeName a elementaryTypeName b typeName return expression ; 
+uint256 uint256 elementaryTypeName expression & expression expression ; expression ; uint256 uint256 elementaryTypeName expression & expression expression ; expression ; uint256 uint256 elementaryTypeName expression + expression 
+uint256 primaryExpression primaryExpression primaryExpression expression ? expression : expression uint256 primaryExpression primaryExpression primaryExpression expression ? expression : expression uint256 expression + expression ( expression ) 
+identifier identifier identifier primaryExpression primaryExpression primaryExpression identifier identifier identifier primaryExpression primaryExpression primaryExpression ( expression ) ( expression ) expression / expression 
+a amp gt identifier identifier identifier a amp lt identifier identifier identifier expression / expression expression / expression ( expression ) primaryExpression 
+b a b b a b primaryExpression primaryExpression primaryExpression primaryExpression expression + expression numberLiteral 
+identifier numberLiteral identifier numberLiteral expression % expression expression % expression 2 
+a 2 b 2 primaryExpression primaryExpression primaryExpression primaryExpression 
+identifier numberLiteral identifier numberLiteral 
+a 2 b 2 
+
