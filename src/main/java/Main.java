@@ -10,7 +10,7 @@ import java.util.concurrent.CountDownLatch;
 
 
 public class Main {
-    private static String projectPath  = "/bdata2/yyh/GitHub_Sol/solidity-nicad/systems/source-code/mainnet/";
+    private static String projectPath  = "";
     //source files
     // private static String projectPath = null;
     private static int threadNum = 50;

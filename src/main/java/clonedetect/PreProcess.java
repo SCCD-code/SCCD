@@ -60,7 +60,7 @@ public class PreProcess extends Thread{
             this.data.setFuncNGram(tmpFuncs);
             this.data.sortTokens(tmpFuncs);
             //this.data.updateInvertedIndex(tmpFuncs);
-            //对token进行排序
+            //sort token
             
             // if (i % 10000 == 0) {
             //     System.out.println("File "+i + "processing done!");
@@ -151,14 +151,14 @@ public class PreProcess extends Thread{
             for (int value : hashCnt.values()) {
                 astNodeNum += value;
             }
-            //过滤行数小于6行的文件
+            //filter function less than 6 lines
             if (normLines.size() > Data.minLine_num) {
                 Func tmpFunc = new Func();
                 tmpFunc.fileName = filePath.substring(projectPathLength);
                 tmpFunc.startLine = 0;
                 tmpFunc.endLine = (short)curLine;
                 tmpFunc.divTokenSequence = divTokens;
-                //可以使用murmur3_128位hash来降低hash碰撞的概率
+                //use murmur3_128bit hash reduce hash collision
                 tempNonNormHash.put(tmpFunc.funcID, getHash64(divTokens));
                 tmpFunc.astNodeHashCnt = hashCnt;
                 tmpFunc.astNodeNum = (short)astNodeNum;
@@ -261,7 +261,7 @@ public class PreProcess extends Thread{
                         }
                     }
                     normLines.add(sb.toString());
-                    //过滤小于3行的函数
+                    //filter function less than 3 lines
                     if (normLines.size() < Data.minLine_num) continue;
                     Map<Integer, Short> hashCnt = getASTHashDict(firstEle, ruleNamesList);
                     int astNodeNum = 0;
@@ -273,7 +273,7 @@ public class PreProcess extends Thread{
                     tmpFunc.startLine = (short)startLine;
                     tmpFunc.endLine = (short)endLine;
                     tmpFunc.divTokenSequence = divTokens;
-                    //可以使用murmur3_128位hash来降低hash碰撞的概率
+                    
                     tempNonNormHash.put(tmpFunc.funcID, getHash64(divTokens));
                     
                     tmpFunc.astNodeHashCnt = hashCnt;
@@ -301,7 +301,7 @@ public class PreProcess extends Thread{
         return tempFuncs;
     }
 
-    //只保留contarct。丢弃interface和library
+    //reserve contract and draw interface and library
     private Map<Integer, Func> getContractLevelInfo(String filePath) {
         Map<Integer, Func> tempFuncs = new HashMap<>();
         try {
@@ -385,7 +385,7 @@ public class PreProcess extends Thread{
                         }
                     }
                     normLines.add(sb.toString());
-                    //过滤小于3行的函数
+                    
                     if (normLines.size() < Data.minLine_num) continue;
                     Map<Integer, Short> hashCnt = getASTHashDict(firstEle, ruleNamesList);
                     int astNodeNum = 0;
@@ -397,7 +397,7 @@ public class PreProcess extends Thread{
                     tmpFunc.startLine = (short)startLine;
                     tmpFunc.endLine = (short)endLine;
                     tmpFunc.divTokenSequence = divTokens;
-                    //可以使用murmur3_128位hash来降低hash碰撞的概率
+                    
                     tempNonNormHash.put(tmpFunc.funcID, getHash64(divTokens));
                     tmpFunc.astNodeHashCnt = hashCnt;
                     tmpFunc.astNodeNum = (short)astNodeNum;
@@ -430,12 +430,12 @@ public class PreProcess extends Thread{
         Map<ParseTree, Integer> visited = new HashMap<>();
         //Map<Node, Integer> nodeHeight = new HashMap<>();
         stack.push(cu);
-        //nodeHeight.put(cu, 1); //存放节点权重: 2^q - 1
+        //nodeHeight.put(cu, 1); 
         while (!stack.isEmpty()) {
             ParseTree node = stack.peek();
             //int h = nodeHeight.get(node);
             int childNodeNum = node.getChildCount();
-            /* 如果当前节点为叶子节点或者当前节点的子节点已经遍历过 */
+            
             if (visited.containsKey(node)) {
                 stack.pop();
                 String nodeText = Trees.getNodeText(node, ruleNamesList);
