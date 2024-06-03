@@ -1,3 +1,4 @@
+SCCD is a dedicated detector for identifying cloned smart contracts written in the Solidity language.
 # SCCD Usage
 The overall process of SCCD can be shown in the figure below. 
 ![Overview of SCCD](SCCD.jpg "Overview of SCCD")
